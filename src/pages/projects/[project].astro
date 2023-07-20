@@ -1,0 +1,40 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+export async function getStaticPaths() {
+    return [
+        {
+            params: { project: 'kasa'}, 
+            props: 
+                {
+                    name:'Kasa', 
+                    desc: "Front end de plateforme de location chez un particulier pour les vacances, réalisé en React"
+                }
+        },
+        {
+            params: { project: 'mvg'}, 
+            props: 
+                {
+                    name:'Mon Vieux Grimoire', 
+                    desc: "Front end de plateforme de location chez un particulier pour les vacances, réalisé en React"
+                }
+        },
+        {
+            params: { project: 'booki'}, 
+            props: 
+                {
+                    name:'Booki', 
+                    desc: "Front end de plateforme de location chez un particulier pour les vacances, réalisé en React"
+                }
+        }
+    ]
+}
+
+const {project} = Astro.params
+const {name, desc} = Astro.props
+---
+
+<MainLayout title="Projet d'Antoine Pigny" seoTitle="Projet d'apprentissage et wip d'Antoine Pigny" seoDesc="Différents projets d'apprentissage sur différents frameworks en JS (React, Node, Vue, Svelte)">
+    <div class="w-8/12 lg:w6-12">
+        <h1 class="text-5xl font-serif">Projet {name}</h1>
+    </div>
+</MainLayout>

@@ -1,0 +1,13 @@
+---
+import { SEO } from 'astro-seo'
+const { title, seoTitle, seoDesc } = Astro.props
+---
+
+<head>
+   <SEO title={seoTitle} description={seoDesc} />
+   <meta charset='UTF-8' />
+   <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+   <title>{title}</title>
+   <link rel='preconnect' href='https://fonts.bunny.net' />
+   <link href='https://fonts.bunny.net/css?family=bodoni-moda:900|quattrocento-sans:400|taviraj:900' rel='stylesheet' />
+</head>

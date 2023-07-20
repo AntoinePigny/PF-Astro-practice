@@ -1,15 +1,41 @@
 ---
+import CardProject from '../components/CardProject.astro';
+import MainLayout from '../layouts/MainLayout.astro'
+import kasaHome from '../assets/kasa-home.jpg'
+import bookiHome from '../assets/mvg-home.jpg'
+import mvgHome from '../assets/booki-home.jpg'
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout
+   title="Antoine Pigny - Développeur Web"
+   seoTitle="Portfolio d'Antoine Pigny, Développeur Web"
+   seoDesc="Développeur web spécialisé en Astro, React, NodeJS"
+>
+   <div id="heroBanner" class="w-8/12 md:w-6/12 mx-auto font-h1 h-full">
+      <h1 class="text-5xl md:text-6xl text-center">Bonjour, je m'appelle Antoine Pigny</h1>
+      <div id="typed-strings">
+         <p>Je suis un <strong>Développeur Web</strong></p>
+         <p>Je travaille et j'apprends sur React, NodeJS et Astro</p>
+      </div>
+      <div class="text-center mt-6 font-sans"><span id="typed"></span></div>
+   </div>
+   <main class="mx-auto" >
+      <section id="about"></section>
+      <section id="experience"></section>
+      <section class="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-screen-xl" id="projects">
+         <CardProject link="/projects/booki" src={bookiHome.src} altDesc="Front End de Booki une plateforme de réservation de logement de vacances" />
+         <CardProject link="/projects/kasa" src={kasaHome.src} altDesc="Front end de Kasa, plateforme de logements de particuliers, en React" />
+         <CardProject link="/projects/mvg" src={mvgHome.src} altDesc="Backend d'une plateforme de notation de livres, utilisant Node, Mongo et Express" />
+      </section>
+      <section id="contact"></section>
+   </main>
+</MainLayout>
+
+<script>
+   import Typed from "typed.js"
+     var typed = new Typed('#typed', {
+    stringsElement: '#typed-strings',
+    typeSpeed: 50,
+    loop:true,
+  });
+</script>
