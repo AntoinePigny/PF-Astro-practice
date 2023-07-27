@@ -1,0 +1,39 @@
+---
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData();
+    const name = data.get("name");
+    const email = data.get("email");
+    const message = data.get("message");
+    // Do something with the data
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
+}
+---
+
+<section id="contact" class="h-[50dvh] flex flex-col items-center justify-center">
+    <h2>Contactez Moi !</h2>
+    <form method="POST" class="grid grid-cols-2 gap-5 font-sans">
+      <label>
+        <input type="text" name="name" placeholder="Nom" required />
+      </label>
+      <label>
+        <input type="email" name="email" placeholder="Email" required/>
+      </label>
+      <label class=" col-span-2">
+        <textarea class="w-full min-h-[150px] resize-y" name="message" placeholder="Message" required minlength="30"></textarea>
+      </label>
+      <div>
+        <button type="submit">Envoyer</button>
+      </div>
+    </form>
+</section>
+
+<style>
+    label > input, label > textarea {
+        padding: 1rem;
+    }
+</style>
